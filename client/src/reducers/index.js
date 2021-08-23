@@ -1,7 +1,6 @@
 import { combineReducers } from "redux";
+import daoReducer from "./daoReducer";
 
 export default combineReducers({
-  daos: (state = [], action) => {
-    return state;
-  },
+  daos: daoReducer,
 });

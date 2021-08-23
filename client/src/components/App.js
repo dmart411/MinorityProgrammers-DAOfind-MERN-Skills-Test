@@ -1,10 +1,13 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import AddDao from "./AddDao";
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">DAO Find</Route>
+        <Route exact path="/">
+          <AddDao />
+        </Route>
       </Switch>
     </Router>
   );
