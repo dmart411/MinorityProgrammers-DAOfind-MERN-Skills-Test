@@ -2,7 +2,7 @@ import _ from "lodash";
 import { ADD_DAO, FETCH_DAO, FETCH_DAOS, UPDATE_DAO } from "../actions/types";
 
 const daoReducer = (state = [], action) => {
-  switch (action.type) {
+   switch (action.type) {
     case FETCH_DAO:
       return _.uniqBy([action.payload, ...state], "id");
     case FETCH_DAOS:
