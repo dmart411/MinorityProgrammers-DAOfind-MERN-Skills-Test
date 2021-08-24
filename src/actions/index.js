@@ -1,5 +1,16 @@
 import api from "../api";
-import { ADD_DAO, FETCH_DAOS, FETCH_DAO, UPDATE_DAO } from "./types";
+import { ADD_DAO, FETCH_DAOS, FETCH_DAO, UPDATE_DAO, FILTER_DAOS } from "./types";
+
+export const filterDaos = (col, ascending=true) => async (dispatch) => {
+  const res = await api.get("/daos");
+  const sortedDaos = ascending
+    ? res.data.sort((a, b) => (a.col > b.col ? 1 : -1))
+    : res.data.sort((a, b) => (a.col < b.col ? 1 : -1));
+  dispatch({
+    type: FILTER_DAOS,
+    payload: sortedDaos
+  })
+};
 
 export const fetchDaos = () => async (dispatch) => {
   const res = await api.get("/daos");
