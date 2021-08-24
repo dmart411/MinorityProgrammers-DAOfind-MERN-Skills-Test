@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://https://dao-json-server.herokuapp.com/",
+  baseURL: "https://dao-json-server.herokuapp.com/",
 });
 
 export default instance;
