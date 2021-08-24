@@ -8,7 +8,7 @@ const daoReducer = (state = [], action) => {
     case FETCH_DAOS:
       return action.payload;
     case UPDATE_DAO:
-      return _.uniqBy([action.payload, ...state], "id");;
+      return _.uniqBy([action.payload, ...state], "id");
     case ADD_DAO:
       return [...state, action.payload];
     default:
