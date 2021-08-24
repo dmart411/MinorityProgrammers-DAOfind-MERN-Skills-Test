@@ -3,13 +3,13 @@ import Leaderboard from "./Leaderboard";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Leaderboard />
-        </Route>
-      </Switch>
-    </Router>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Leaderboard />
+          </Route>
+        </Switch>
+      </Router>
   );
 }
 
