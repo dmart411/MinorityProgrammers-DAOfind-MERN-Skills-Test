@@ -3,3 +3,4 @@ export const UPDATE_DAO = "UPDATE_DAO";
 export const FETCH_DAO = "FETCH_DAO";
 export const FETCH_DAOS = "FETCH_DAOS";
 export const FILTER_DAOS = "FILTER_DAOS";
+export const SEARCH_DAOS = "SEARCH_DAOS";

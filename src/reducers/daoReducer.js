@@ -5,10 +5,13 @@ import {
   FETCH_DAOS,
   FILTER_DAOS,
   UPDATE_DAO,
+  SEARCH_DAOS
 } from "../actions/types";
 
 const daoReducer = (state = [], action) => {
   switch (action.type) {
+    case SEARCH_DAOS: 
+      return action.payload;
     case FILTER_DAOS:
       return action.payload;
     case FETCH_DAO:

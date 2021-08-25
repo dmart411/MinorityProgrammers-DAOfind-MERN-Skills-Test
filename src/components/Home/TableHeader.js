@@ -2,7 +2,7 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { filterDaos } from "../../actions";
 
-const TableHeader = ({ label, property, setFilter, filterDaos }) => {
+const TableHeader = ({ label, property, filterDaos }) => {
   const [ascending, setAscending] = useState(true);
   return (
     <th
@@ -13,9 +13,9 @@ const TableHeader = ({ label, property, setFilter, filterDaos }) => {
     >
       {label}
       {!ascending ? (
-        <i className="caret up icon" style={{ marginLeft: "20px" }}></i>
+        <i className="caret up icon"></i>
       ) : (
-        <i className="caret down icon" style={{ marginLeft: "20px" }}></i>
+        <i className="caret down icon"></i>
       )}
     </th>
   );

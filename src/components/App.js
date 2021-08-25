@@ -6,11 +6,16 @@ function App() {
   return (
     <Router>
       <Sidebar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <div className="ui grid">
+        <div className="two wide column"></div>
+        <div className="thirteen wide column">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+      </div>
     </Router>
   );
 }

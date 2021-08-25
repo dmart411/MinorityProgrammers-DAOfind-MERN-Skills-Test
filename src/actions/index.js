@@ -5,13 +5,24 @@ import {
   FETCH_DAO,
   UPDATE_DAO,
   FILTER_DAOS,
+  SEARCH_DAOS,
 } from "./types";
+
+export const searchDaos = (text) => async (dispatch) => {
+  const res = await api.get("/daos");
+  const filteredData = res.data.filter((dao) => {
+    return dao.name.toLowerCase().indexOf(text.toLowerCase()) !== -1;
+  });
+  dispatch({
+    type: SEARCH_DAOS,
+    payload: filteredData,
+  });
+};
 
 export const filterDaos =
   (property, ascending = true) =>
-  async (dispatch) => {
-    const res = await api.get("/daos");
-    let filteredData = res.data;
+  (dispatch, getState) => {
+    let filteredData = getState().daos;
     filteredData = filteredData.map((dao) => {
       dao.aum = dao.aum === "N/A" ? 0 : dao.aum;
       return dao;

@@ -11,7 +11,7 @@ const Leaderboard = ({ daos, fetchDaos }) => {
   return (
     <div className="ui container">
       <h1>DAO Leaderboard</h1>
-      <table className="ui sortable celled table" style={{ minWidth: "500px" }}>
+      <table className="ui small inverted blue sortable celled table unstackable single line">
         <thead>
           <tr>
             <TableHeader label="DAO" property="name" />
@@ -26,24 +26,16 @@ const Leaderboard = ({ daos, fetchDaos }) => {
             ? daos.map((dao) => {
                 return (
                   <tr key={dao.id}>
-                    <td style={{ whiteSpace: "nowrap" }}>
-                      <div style={{ display: "inline-block" }}>
-                        <img
-                          src={dao.img}
-                          width="35"
-                          height="35"
-                          style={{ marginRight: "5px", borderRadius: "10px" }}
-                          alt="logo"
-                        />
-                        <div
-                          style={{
-                            fontSize: "15px",
-                            display: "inline-block",
-                          }}
-                        >
-                          {dao.name}
-                        </div>
-                      </div>
+                    <td>
+                      <img
+                        src={dao.img}
+                        width="35"
+                        height="35"
+                        style={{ marginRight: "5px", borderRadius: "30px" }}
+                        alt="logo"
+                      />
+
+                      {dao.name}
                     </td>
                     <td>{dao.category}</td>
                     <td>{`$${dao.aum}`}</td>

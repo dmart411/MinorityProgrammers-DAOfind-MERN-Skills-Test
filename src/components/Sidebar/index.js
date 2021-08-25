@@ -6,8 +6,7 @@ const Sidebar = () => {
   const location = useLocation();
   return (
     <div
-      className="ui sidebar visible vertical labeled icon menu"
-      style={{ position: "fixed" }}
+      className="ui thin sidebar visible inverted blue vertical labeled icon menu"
     >
       {SidebarData.map((value, key) => {
         return (
@@ -15,7 +14,7 @@ const Sidebar = () => {
             to={value.link}
             key={key}
             className={`${
-              location.pathname === value.link ? "active teal" : ""
+              location.pathname === value.link ? "active" : ""
             } item`}
           >
             {value.title}
