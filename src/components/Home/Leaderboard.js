@@ -38,7 +38,9 @@ const Leaderboard = ({ daos, fetchDaos }) => {
                       {dao.name}
                     </td>
                     <td>{dao.category}</td>
-                    <td>{`$${dao.aum}`}</td>
+                    <td>{`$${
+                      dao.aum !== "N/A" ? parseInt(dao.aum).toLocaleString() : 0
+                    }`}</td>
                     <td>{dao.twl}</td>
                     <td>{dao.foundDate}</td>
                   </tr>
