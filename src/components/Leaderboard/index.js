@@ -2,24 +2,24 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Table, Image, Container } from "react-bootstrap";
 import { fetchDaos } from "../../actions";
+import TableHeader from "./TableHeader";
 
 const Leaderboard = ({ daos, fetchDaos }) => {
   useEffect(() => {
     fetchDaos();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchDaos]);
 
   return (
     <Container>
-      <h1>DAO Leaderboards</h1>
+      <h1>DAO Leaderboard</h1>
       <Table responsive size="sm" bordered hover style={{ minWidth: "500px" }}>
         <thead>
           <tr>
-            <th>DAO</th>
-            <th>Category</th>
-            <th>AUM</th>
-            <th>TWL</th>
-            <th>Date founded</th>
+            <TableHeader label="DAO" property="name" />
+            <TableHeader label="Category" property="category" />
+            <TableHeader label="AUM" property="aum" />
+            <TableHeader label="TWL" property="twl" />
+            <TableHeader label="Date Founded" property="foundDate" />
           </tr>
         </thead>
         <tbody>

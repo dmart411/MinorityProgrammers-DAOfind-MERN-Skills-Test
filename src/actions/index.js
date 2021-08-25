@@ -1,16 +1,51 @@
 import api from "../api";
-import { ADD_DAO, FETCH_DAOS, FETCH_DAO, UPDATE_DAO, FILTER_DAOS } from "./types";
+import {
+  ADD_DAO,
+  FETCH_DAOS,
+  FETCH_DAO,
+  UPDATE_DAO,
+  FILTER_DAOS,
+} from "./types";
 
-export const filterDaos = (col, ascending=true) => async (dispatch) => {
-  const res = await api.get("/daos");
-  const sortedDaos = ascending
-    ? res.data.sort((a, b) => (a.col > b.col ? 1 : -1))
-    : res.data.sort((a, b) => (a.col < b.col ? 1 : -1));
-  dispatch({
-    type: FILTER_DAOS,
-    payload: sortedDaos
-  })
-};
+export const filterDaos =
+  (property, ascending = true) =>
+  async (dispatch) => {
+    const res = await api.get("/daos");
+    let filteredData = res.data;
+    filteredData = filteredData.map((dao) => {
+      dao.aum = dao.aum === "N/A" ? 0 : dao.aum;
+      return dao;
+    });
+    if (
+      property === "name" ||
+      property === "category" ||
+      property === "foundDate"
+    ) {
+      if (ascending) {
+        filteredData = filteredData.sort((a, b) =>
+          a[property].toLowerCase() > b[property].toLowerCase() ? 1 : -1
+        );
+      } else {
+        filteredData = filteredData.sort((a, b) =>
+          a[property].toLowerCase() < b[property].toLowerCase() ? 1 : -1
+        );
+      }
+    } else if (property === "aum" || property === "twl") {
+      if (ascending) {
+        filteredData = filteredData.sort((a, b) =>
+          parseInt(a[property]) > parseInt(b[property]) ? 1 : -1
+        );
+      } else {
+        filteredData = filteredData.sort((a, b) =>
+          parseInt(a[property]) < parseInt(b[property]) ? 1 : -1
+        );
+      }
+    }
+    dispatch({
+      type: FILTER_DAOS,
+      payload: filteredData,
+    });
+  };
 
 export const fetchDaos = () => async (dispatch) => {
   const res = await api.get("/daos");
