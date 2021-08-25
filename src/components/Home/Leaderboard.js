@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { Table, Image, Container } from "react-bootstrap";
 import { fetchDaos } from "../../actions";
 import TableHeader from "./TableHeader";
 
@@ -10,9 +9,9 @@ const Leaderboard = ({ daos, fetchDaos }) => {
   }, [fetchDaos]);
 
   return (
-    <Container>
+    <div className="ui container">
       <h1>DAO Leaderboard</h1>
-      <Table responsive size="sm" bordered hover style={{ minWidth: "500px" }}>
+      <table className="ui sortable celled table" style={{ minWidth: "500px" }}>
         <thead>
           <tr>
             <TableHeader label="DAO" property="name" />
@@ -29,12 +28,12 @@ const Leaderboard = ({ daos, fetchDaos }) => {
                   <tr key={dao.id}>
                     <td style={{ whiteSpace: "nowrap" }}>
                       <div style={{ display: "inline-block" }}>
-                        <Image
+                        <img
                           src={dao.img}
-                          width="40"
-                          height="40"
-                          thumbnail
-                          style={{ marginRight: "5px" }}
+                          width="35"
+                          height="35"
+                          style={{ marginRight: "5px", borderRadius: "10px" }}
+                          alt="logo"
                         />
                         <div
                           style={{
@@ -55,8 +54,8 @@ const Leaderboard = ({ daos, fetchDaos }) => {
               })
             : null}
         </tbody>
-      </Table>
-    </Container>
+      </table>
+    </div>
   );
 };
 

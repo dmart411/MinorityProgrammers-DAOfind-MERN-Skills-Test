@@ -12,10 +12,10 @@ const TableHeader = ({ label, property, setFilter, filterDaos }) => {
       }}
     >
       {label}
-      {ascending ? (
-        <i className="fas fa-arrow-up" style={{ marginLeft: "20px" }}></i>
+      {!ascending ? (
+        <i className="caret up icon" style={{ marginLeft: "20px" }}></i>
       ) : (
-        <i className="fas fa-arrow-down" style={{ marginLeft: "20px" }}></i>
+        <i className="caret down icon" style={{ marginLeft: "20px" }}></i>
       )}
     </th>
   );

@@ -5,7 +5,7 @@ const AddDao = (props) => {
   return (
     <button
       onClick={() => {
-        props.addDao({ hello: "world" });
+        props.addDao();
       }}
     >
       add

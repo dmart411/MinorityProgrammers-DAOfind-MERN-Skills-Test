@@ -1,15 +1,17 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Leaderboard from "./Leaderboard";
+import Home from "./Home";
+import Sidebar from "./Sidebar";
 
 function App() {
   return (
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Leaderboard />
-          </Route>
-        </Switch>
-      </Router>
+    <Router>
+      <Sidebar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
