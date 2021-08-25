@@ -1,13 +1,15 @@
 import Leaderboard from "./Leaderboard";
 import Search from "./Search";
+import Statistics from "./Statistics";
 
-const Home = () => {
-    return (
-        <div className="ui container">
-            <Search />
-            <Leaderboard />
-        </div>
-    )
-}
+const Home = ({ daos }) => {
+  return (
+    <div className="ui container">
+      <Statistics />
+      <Search />
+      <Leaderboard />
+    </div>
+  );
+};
 
-export default Home
+export default Home;
