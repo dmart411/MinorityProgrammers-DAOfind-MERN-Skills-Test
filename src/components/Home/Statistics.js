@@ -15,7 +15,7 @@ const Statistics = ({ daos }) => {
   }, [daos]);
 
   return (
-    <div className="ui statistics">
+    <div className="ui horizontal blue statistics">
       <div className="statistic">
         <div className="value">{totalDAOs}</div>
         <div className="label">Number of DAOs</div>
