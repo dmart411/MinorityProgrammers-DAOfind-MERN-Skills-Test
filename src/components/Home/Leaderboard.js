@@ -41,7 +41,7 @@ const Leaderboard = ({ daos, fetchDaos }) => {
                     <td>{`$${
                       dao.aum !== "N/A" ? parseInt(dao.aum).toLocaleString() : 0
                     }`}</td>
-                    <td>{dao.twl}</td>
+                    <td>{parseInt(dao.twl).toLocaleString()}</td>
                     <td>{dao.foundDate}</td>
                   </tr>
                 );
