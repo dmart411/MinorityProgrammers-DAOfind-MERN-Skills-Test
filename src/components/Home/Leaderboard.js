@@ -1,9 +1,12 @@
 import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchDaos } from "../../actions";
 import TableHeader from "./TableHeader";
 
 const Leaderboard = ({ daos, fetchDaos }) => {
+  const history = useHistory();
+
   useEffect(() => {
     fetchDaos();
   }, [fetchDaos]);
@@ -25,17 +28,17 @@ const Leaderboard = ({ daos, fetchDaos }) => {
           {daos
             ? daos.map((dao) => {
                 return (
-                  <tr key={dao.id}>
+                  <tr key={dao.id} onClick={()=>{history.push(`/dao/${dao.id}`)}}>
                     <td>
-                      <img
-                        src={dao.img}
-                        width="35"
-                        height="35"
-                        style={{ marginRight: "5px", borderRadius: "30px" }}
-                        alt="logo"
-                      />
+                        <img
+                          src={dao.img}
+                          width="35"
+                          height="35"
+                          style={{ marginRight: "5px", borderRadius: "30px" }}
+                          alt="logo"
+                        />
 
-                      {dao.name}
+                        {dao.name}
                     </td>
                     <td>{dao.category}</td>
                     <td>{`$${
