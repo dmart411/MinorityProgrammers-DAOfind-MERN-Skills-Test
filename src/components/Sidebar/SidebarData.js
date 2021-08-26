@@ -14,9 +14,4 @@ export const SidebarData = [
     icon: <i className="graduation cap icon"></i>,
     link: "/learn",
   },
-  {
-    title: "Sponsor",
-    icon: <i className="handshake icon"></i>,
-    link: "/sponsor",
-  },
 ];

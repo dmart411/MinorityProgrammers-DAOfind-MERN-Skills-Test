@@ -5,9 +5,10 @@ import { SidebarData } from "./SidebarData";
 const Sidebar = () => {
   const location = useLocation();
   return (
-    <div
-      className="ui thin sidebar visible inverted blue vertical labeled icon menu"
-    >
+    <div className="ui thin sidebar visible inverted blue vertical labeled icon menu">
+      <Link to="/" className="item">
+        <div className="ui header">DAO FIND</div>
+      </Link>
       {SidebarData.map((value, key) => {
         return (
           <Link

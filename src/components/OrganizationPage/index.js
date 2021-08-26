@@ -6,7 +6,7 @@ import { fetchDaos } from "../../actions";
 const OrganizationPage = ({ match, fetchDaos, dao }) => {
   useEffect(() => {
     fetchDaos();
-  }, [fetchDaos]);
+  }, []);
 
   const renderContent = () => {
     return (

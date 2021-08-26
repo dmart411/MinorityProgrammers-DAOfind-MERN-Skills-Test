@@ -4,6 +4,8 @@ import AddDao from "./AddDao";
 import Sidebar from "./Sidebar";
 import OrganizationPage from "./OrganizationPage";
 import UpdateDao from "./UpdateDao";
+import Learn from "./Learn";
+import Sponsor from "./Sponsor";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Route path="/add-dao" component={AddDao} />
             <Route path="/edit-dao/:id" component={UpdateDao} />
             <Route path="/dao/:id" component={OrganizationPage} />
+            <Route path="/learn" component={Learn} />
+            <Route path="/sponsor" component={Sponsor} />
           </Switch>
         </div>
       </div>
