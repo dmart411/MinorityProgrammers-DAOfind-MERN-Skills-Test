@@ -23,11 +23,15 @@ const OrganizationPage = ({ match, fetchDaos, dao }) => {
           <div className="description">
             <div className="ui horizontal statistics">
               <div className="statistic">
-                <div className="value">${dao.aum.toLocaleString()}</div>
+                <div className="value">
+                  ${parseInt(dao.aum).toLocaleString()}
+                </div>
                 <div className="label">AUM (USD)</div>
               </div>
               <div className="statistic">
-                <div className="value">{dao.twl.toLocaleString()}</div>
+                <div className="value">
+                  {parseInt(dao.twl).toLocaleString()}
+                </div>
                 <div className="label">Total TWL</div>
               </div>
               <div className="statistic">

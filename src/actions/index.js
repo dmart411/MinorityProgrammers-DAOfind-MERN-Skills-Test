@@ -84,7 +84,7 @@ export const updateDao = (dao) => async (dispatch) => {
 };
 
 export const addDao = (dao) => async (dispatch) => {
-  const newDao = { ...dao, id: Math.random() * 10000 };
+  const newDao = { ...dao, id: Date.now().toString() };
   const res = await api.post("/daos", newDao);
   dispatch({
     type: ADD_DAO,
