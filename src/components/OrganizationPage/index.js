@@ -6,6 +6,7 @@ import { fetchDaos } from "../../actions";
 const OrganizationPage = ({ match, fetchDaos, dao }) => {
   useEffect(() => {
     fetchDaos();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderContent = () => {
