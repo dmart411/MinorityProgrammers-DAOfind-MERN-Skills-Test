@@ -3,6 +3,7 @@ import Home from "./Home";
 import AddDAO from "./AddDAO";
 import Sidebar from "./Sidebar";
 import OrganizationPage from "./OrganizationPage";
+import UpdateDao from "./UpdateDao";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/add-dao" component={AddDAO} />
+            <Route path="/edit-dao/:id" component={UpdateDao} />
             <Route path="/dao/:id" component={OrganizationPage} />
           </Switch>
         </div>

@@ -68,6 +68,7 @@ export const fetchDaos = () => async (dispatch) => {
 
 export const fetchDao = (id) => async (dispatch) => {
   const res = await api.get(`/daos/${id}`);
+
   dispatch({
     type: FETCH_DAO,
     payload: res.data,

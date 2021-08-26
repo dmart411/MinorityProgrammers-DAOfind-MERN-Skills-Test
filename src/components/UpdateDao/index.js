@@ -1,15 +1,19 @@
-import { connect } from "react-redux";
 import { useHistory } from "react-router";
-import { useState } from "react";
-import { addDao } from "../../actions";
+import { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { fetchDao, updateDao } from "../../actions";
 
-const AddDAO = ({ addDao }) => {
+const UpdateDao = ({ match, fetchDao, updateDao, dao }) => {
+  useEffect(() => {
+    fetchDao(match.params.id);
+  }, []);
+
   let history = useHistory();
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [date, setDate] = useState("");
-  const [aum, setAum] = useState(0);
-  const [twl, setTwl] = useState(0);
+  const [name, setName] = useState(dao.name);
+  const [category, setCategory] = useState(dao.category);
+  const [date, setDate] = useState(dao.foundDate);
+  const [aum, setAum] = useState(parseInt(dao.aum));
+  const [twl, setTwl] = useState(parseInt(dao.twl));
 
   const categoryOptions = [
     "Collector",
@@ -24,14 +28,14 @@ const AddDAO = ({ addDao }) => {
 
   const onSubmit = () => {
     const newDao = {
+      id: dao.id,
       name,
       category,
       aum,
       twl,
       foundDate: date,
-      img: "https://via.placeholder.com/50",
     };
-    addDao(newDao);
+    updateDao(newDao);
     setName("");
     setCategory("");
     setDate("");
@@ -42,7 +46,7 @@ const AddDAO = ({ addDao }) => {
 
   return (
     <div className="ui container" style={{ marginTop: "40px" }}>
-      <h1 className="ui dividing header">Add a DAO</h1>
+      <h1 className="ui dividing header">Edit a DAO</h1>
       <form className="ui equal width form" onSubmit={onSubmit}>
         <div className="fields">
           <div className="required field">
@@ -107,4 +111,10 @@ const AddDAO = ({ addDao }) => {
   );
 };
 
-export default connect(null, { addDao })(AddDAO);
+const mapStateToProps = ({ daos }, ownProps) => {
+  return {
+    dao: daos.filter((dao) => dao.id === ownProps.match.params.id).pop(),
+  };
+};
+
+export default connect(mapStateToProps, { updateDao, fetchDao })(UpdateDao);
