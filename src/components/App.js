@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Home";
-import AddDAO from "./AddDAO";
+import AddDao from "./AddDao";
 import Sidebar from "./Sidebar";
 import OrganizationPage from "./OrganizationPage";
 import UpdateDao from "./UpdateDao";
@@ -14,7 +14,7 @@ function App() {
         <div className="thirteen wide column">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/add-dao" component={AddDAO} />
+            <Route path="/add-dao" component={AddDao} />
             <Route path="/edit-dao/:id" component={UpdateDao} />
             <Route path="/dao/:id" component={OrganizationPage} />
           </Switch>

@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import { useState } from "react";
 import { addDao } from "../../actions";
 
-const AddDAO = ({ addDao }) => {
+const AddDao = ({ addDao }) => {
   let history = useHistory();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -107,4 +107,4 @@ const AddDAO = ({ addDao }) => {
   );
 };
 
-export default connect(null, { addDao })(AddDAO);
+export default connect(null, { addDao })(AddDao);
